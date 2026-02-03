@@ -144,6 +144,41 @@ button:active {
     border-color: var(--danger);
 }
 
+/* Important Task Styles */
+.task-item.important {
+    border-color: rgba(234, 179, 8, 0.4);
+    background: linear-gradient(to right, rgba(234, 179, 8, 0.05), rgba(255, 255, 255, 0.03));
+}
+
+.important-badge {
+    background: rgba(234, 179, 8, 0.2);
+    color: #facc15;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-left: 0.5rem;
+    display: inline-block;
+}
+
+/* Checkbox Style */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    user-select: none;
+}
+
+.checkbox-group input {
+    width: 1.2rem;
+    height: 1.2rem;
+    cursor: pointer;
+}
+
 /* Modal Styles */
 .modal-overlay {
     position: fixed;

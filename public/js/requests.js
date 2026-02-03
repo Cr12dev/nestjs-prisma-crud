@@ -8,10 +8,13 @@ async function fetchTasks() {
 
   tasks.forEach((task) => {
     const li = document.createElement('li');
-    li.className = 'task-item';
+    li.className = `task-item ${task.important ? 'important' : ''}`;
     li.innerHTML = `
                     <div class="task-info">
-                        <h3>${task.title}</h3>
+                        <h3>
+                            ${task.title}
+                            ${task.important ? '<span class="important-badge">Important</span>' : ''}
+                        </h3>
                         <p>${task.description || 'No description'}</p>
                     </div>
                     <button class="delete-btn" onclick="deleteTask(${task.id})">Delete</button>
@@ -23,17 +26,19 @@ async function fetchTasks() {
 async function createTask() {
   const title = document.getElementById('title').value;
   const description = document.getElementById('description').value;
+  const important = document.getElementById('important').checked;
 
   if (!title) return alert('Title is required');
 
   await fetch(API_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ title, description }),
+    body: JSON.stringify({ title, description, important }),
   });
 
   document.getElementById('title').value = '';
   document.getElementById('description').value = '';
+  document.getElementById('important').checked = false;
   fetchTasks();
 }
 
