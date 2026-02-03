@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskManager - NestJS + Prisma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Task Manager</h1>
+        
+        <div class="form-group">
+            <input type="text" id="title" placeholder="What needs to be done?">
+            <textarea id="description" placeholder="Add some details..." rows="3"></textarea>
+            <button onclick="createTask()">Create Task</button>
+        </div>
+
+        <ul class="task-list" id="taskList">
+            <!-- Tasks will be loaded here -->
+        </ul>
+    </div>
+
+    <div class="modal-overlay" id="confirmModal">
+        <div class="modal-content">
+            <h2>Are you sure?</h2>
+            <p>This action cannot be undone. This task will be permanently deleted.</p>
+            <div class="modal-actions">
+                <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn-danger" id="confirmDeleteBtn">Delete Task</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/requests.js"></script>
+</body>
+</html>
